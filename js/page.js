@@ -1,6 +1,11 @@
 /* Page building */
 const page = [];
 
+// Configuration
+page.config = {
+    "titleSuffix": " | JSONdb"
+}
+
 // Page elements
 page.Header = class { // Header
     constructor(parent) {
@@ -26,7 +31,12 @@ page.appendElements = function(parent, objs) {
 
 // Build the page
 page.build = function() {
+    
+    // Add header
     new page.Header(document.getElementsByTagName('header')[0])
+
+    // Set title suffix
+    document.getElementsByTagName('title')[0].innerText += page.config.titleSuffix
 }
 
 window.onload = page.build

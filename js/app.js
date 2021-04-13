@@ -11,7 +11,7 @@ const session = []; // Current session data
 app.update = function(evt) {
     const target = { row: parseInt(evt.target.dataset.row), property: evt.target.dataset.property, value: evt.target.value }
     const row = session.data[target.row];
-    row[target.property] = target.value
+    row[target.property] = target.value;
 };
 
 app.show = function() {
@@ -35,7 +35,7 @@ interface.Row = class {
             field.addEventListener('blur', app.update)
             row.appendChild(field);
         };
-        const data = new Construct();
+        const data = {}
         session.data.push(data);
         document.getElementById('app').appendChild(row);
         session.rows.push(row);

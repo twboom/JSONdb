@@ -15,6 +15,35 @@ h1.header {
     margin-top: 8px;
 }
 
+/* Buttons */
+div#controls {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+button.control {
+    width: 20%;
+    background-color: #2F346D;
+    border: hidden;
+    border-radius: 8px;
+    height: 32px;
+    color: white;
+    font-family: 'Source Code Pro';
+    transition: 0.5s;
+    outline: none;
+}
+
+button.control:hover {
+    background-color: #5a5a5a;
+}
+
+button.control:active {
+    background-color: white;
+    color: black;
+}
+
 /* Colums */
 table#app {
     width: 80%;

@@ -12,6 +12,10 @@ app.update = function(evt) {
     const target = { row: parseInt(evt.target.dataset.row), property: evt.target.dataset.property, value: evt.target.value }
     const row = session.data[target.row];
     row[target.property] = target.value
+};
+
+app.show = function() {
+    console.table(session.data);
 }
 
 /* Interface */
@@ -46,7 +50,21 @@ interface.init = function(headers) {
         el.innerText = value;
         header.appendChild(el);
     }
-    document.getElementById('app').appendChild(header)
+    document.getElementById('app').appendChild(header);
+    document.getElementById('app').addEventListener('keydown', evt => {
+        if (parseInt(evt.target.dataset.row) === session.data.length - 1) {
+            new interface.Row(test.arr, test.Obj)
+        };
+        if (parseInt(evt.target.dataset.row) === session.data.length - 2 && evt.key === 'Enter') {
+            new interface.Row(test.arr, test.Obj)
+        }
+    });
+    document.getElementById('app').addEventListener('keydown', evt => {
+        if (evt.key === 'Enter') {
+            const row = parseInt(evt.target.dataset.row)
+            document.querySelector(`input[data-row='${row + 1}']`).focus()
+        }
+    })
 };
 
 /* Session */
